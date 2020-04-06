@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Notes.NoteEntryPage"
+             Title="Add Note">
+
+    
+    <ContentPage.Content>
+        <StackLayout Margin="40,40,40,0">
+            <Editor Placeholder="Enter your Note"
+                    Text="{Binding Text}"
+                    HeightRequest="100"/>
+            <!--<Entry Placeholder="Enter your Note"
+                   Text="{Binding Text}"
+                   HeightRequest="100"/>-->
+            <Grid HorizontalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Button" 
+                        Text="Save"
+                        FontSize="Large"
+                        BackgroundColor="Black"
+                        CornerRadius="5"
+                        Clicked="OnSaveButtonClicked"/>
+                <Button x:Name="Button2" 
+                        Grid.Column="1"
+                        Text="Delete"
+                        FontSize="Large"
+                        CornerRadius="5"
+                        BackgroundColor="Black"
+                        Clicked="OnDeleteButtonClicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
