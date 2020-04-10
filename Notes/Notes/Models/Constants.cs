@@ -7,7 +7,7 @@ namespace Notes.Models
 {
     class Constants
     {
-        public static Color BackgroundColor = Color.OldLace;
+        public static Color BackgroundColor = Color.White;
         public static Color TextColor = Color.Black;
         public static Color ButtonText = Color.White;
 

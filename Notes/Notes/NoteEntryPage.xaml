@@ -7,34 +7,49 @@
              x:Class="Notes.NoteEntryPage"
              Title="Add Note">
 
-    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="start" Icon="mic.png" Priority="0" Order="Primary" Clicked="Start_Clicked"/>
+        <ToolbarItem x:Name="save" Icon="save.png" Priority="1" Order="Primary" Clicked="OnSaveButtonClicked"/>
+        <ToolbarItem x:Name="delete" Icon="delete.png" Priority="2" Order="Primary" Clicked="OnDeleteButtonClicked"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <StackLayout Margin="40,40,40,0">
-            <Editor Placeholder="Enter your Note"
-                    Text="{Binding Text}"
-                    HeightRequest="100"/>
-            <!--<Entry Placeholder="Enter your Note"
+        <ScrollView>
+            <StackLayout Margin="10,0,10,0">
+                <Editor x:Name="Note" 
+                        Placeholder="Enter your Note"
+                        Text="{Binding Text}"
+                        HeightRequest="1000"/>
+                
+                <!--<Entry Placeholder="Enter your Note"
                    Text="{Binding Text}"
                    HeightRequest="100"/>-->
-            <Grid HorizontalOptions="CenterAndExpand">
+
+                <!--<Grid HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="Button" 
                         Text="Save"
-                        FontSize="Large"
-                        BackgroundColor="Black"
+                        TextColor="White"
+                        FontSize="Body"
+                        BackgroundColor="CornflowerBlue"
                         CornerRadius="5"
                         Clicked="OnSaveButtonClicked"/>
                 <Button x:Name="Button2" 
                         Grid.Column="1"
                         Text="Delete"
-                        FontSize="Large"
+                        TextColor="White"
+                        FontSize="Body"
                         CornerRadius="5"
-                        BackgroundColor="Black"
+                        BackgroundColor="CornflowerBlue"
                         Clicked="OnDeleteButtonClicked"/>
-            </Grid>
-        </StackLayout>
+            </Grid>-->
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

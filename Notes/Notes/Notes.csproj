@@ -3,6 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ApplicationIcon></ApplicationIcon>
+    <OutputType>Library</OutputType>
+    <StartupObject />
+    <Authors>Ulelu Israel</Authors>
+    <Company>Cuzlems Technologies</Company>
   </PropertyGroup>
 
   <ItemGroup>

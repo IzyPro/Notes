@@ -13,16 +13,51 @@ namespace Notes
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NoteEntryPage : ContentPage
     {
+        private ISpeechToText _speechRecognitionInstance;
         public NoteEntryPage()
         {
             InitializeComponent();
             Init();
+
+            try
+            {
+                _speechRecognitionInstance = DependencyService.Get<ISpeechToText>();
+            }
+            catch(Exception ex)
+            {
+                Note.Text = ex.Message;
+            }
+
+            MessagingCenter.Subscribe<ISpeechToText, string>(this, "STT", (sender, args) => { SpeechToTextFinalResultRecieved(args); });
+            MessagingCenter.Subscribe<ISpeechToText>(this, "Final", (sender) => { start.IsEnabled = true; });
+            MessagingCenter.Subscribe<IMessageSender, string>(this, "STT", (sender, args) => { SpeechToTextFinalResultRecieved(args); });
         }
 
+        private void SpeechToTextFinalResultRecieved(string args)
+        {
+            Note.Text += args;
+        }
+
+        private void Start_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                _speechRecognitionInstance.StartSpeechToText();
+            }
+            catch(Exception ex)
+            {
+                Note.Text = ex.Message;
+            }
+
+            if(Device.RuntimePlatform == Device.iOS)
+            {
+                start.IsEnabled = false;
+            }
+        }
         void Init()
         {
-            Button.TextColor = Constants.ButtonText;
-            Button2.TextColor = Constants.ButtonText;
+            //Button.TextColor = Constants.ButtonText;
+            //Button2.TextColor = Constants.ButtonText;
             BackgroundColor = Constants.BackgroundColor;
         }
 

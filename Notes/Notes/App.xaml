@@ -6,7 +6,13 @@
              mc:Ignorable="d"
              x:Class="Notes.App">
     <Application.Resources>
-        
+        <ResourceDictionary>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="CornflowerBlue"/>
+                <Setter Property="BarTextColor" Value="White"/>
+                <Setter Property="Visual" Value="Material"/>
+            </Style>
+        </ResourceDictionary>
 
     </Application.Resources>
 </Application>
