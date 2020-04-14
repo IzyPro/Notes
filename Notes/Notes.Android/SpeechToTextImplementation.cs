@@ -11,6 +11,7 @@ using Android.Speech;
 using Android.Views;
 using Android.Widget;
 using Notes.Models;
+using Notes.Renderers;
 using Plugin.CurrentActivity;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Notes.Droid.SpeechToTextImplementation))]

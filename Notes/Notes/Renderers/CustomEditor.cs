@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Notes.Renderers;
+using Xamarin.Forms;
 
-namespace Notes.Models
+namespace Notes.Renderers
 {
-    public interface IMessageSender
+    public class CustomEditor : Editor
     {
     }
 }

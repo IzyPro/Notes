@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Notes.Renderers"
              mc:Ignorable="d"
              x:Class="Notes.NoteEntryPage"
              Title="Add Note">
@@ -16,7 +17,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="10,0,10,0">
-                <Editor x:Name="Note" 
+                <local:CustomEditor x:Name="Note" 
                         Placeholder="Enter your Note"
                         Text="{Binding Text}"
                         HeightRequest="1000"/>

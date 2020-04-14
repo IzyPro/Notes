@@ -7,6 +7,7 @@ using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Notes.Models;
+using Notes.Renderers;
 
 namespace Notes
 {
