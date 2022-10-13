@@ -37,7 +37,15 @@ namespace Notes
 
         private void SpeechToTextFinalResultRecieved(string args)
         {
-            Note.Text += args;
+            if (string.IsNullOrEmpty(Note.Text))
+            {
+                Note.Text += args;
+            }
+            else
+            {
+                Note.Text += " " + args;
+
+            }
         }
 
         private void Start_Clicked(object sender, EventArgs e)
