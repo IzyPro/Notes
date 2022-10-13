@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 using Notes.Models;
 using Notes.Renderers;
 
@@ -76,6 +77,23 @@ namespace Notes
                 File.WriteAllText(note.Filename, note.Text);
             }
             await Navigation.PopAsync();
+        }
+
+        async void OnShareButtonClicked(object sender, EventArgs e)
+        {
+            var note = (Note)BindingContext;
+
+            await ShareText(note.Text);
+            await Navigation.PopAsync();
+        }
+
+        public async Task ShareText(string text)
+        {
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Text = text,
+                Title = "Share Note"
+            });
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
