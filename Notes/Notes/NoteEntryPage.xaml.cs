@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 using Notes.Models;
 using Notes.Renderers;
 
@@ -36,7 +37,15 @@ namespace Notes
 
         private void SpeechToTextFinalResultRecieved(string args)
         {
-            Note.Text += args;
+            if (string.IsNullOrEmpty(Note.Text))
+            {
+                Note.Text += args;
+            }
+            else
+            {
+                Note.Text += " " + args;
+
+            }
         }
 
         private void Start_Clicked(object sender, EventArgs e)
@@ -76,6 +85,23 @@ namespace Notes
                 File.WriteAllText(note.Filename, note.Text);
             }
             await Navigation.PopAsync();
+        }
+
+        async void OnShareButtonClicked(object sender, EventArgs e)
+        {
+            var note = (Note)BindingContext;
+
+            await ShareText(note.Text);
+            await Navigation.PopAsync();
+        }
+
+        public async Task ShareText(string text)
+        {
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Text = text,
+                Title = "Share Note"
+            });
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {

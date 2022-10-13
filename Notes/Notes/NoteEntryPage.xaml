@@ -11,7 +11,8 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="start" Icon="mic.png" Priority="0" Order="Primary" Clicked="Start_Clicked"/>
         <ToolbarItem x:Name="save" Icon="save.png" Priority="1" Order="Primary" Clicked="OnSaveButtonClicked"/>
-        <ToolbarItem x:Name="delete" Icon="delete.png" Priority="2" Order="Primary" Clicked="OnDeleteButtonClicked"/>
+        <ToolbarItem x:Name="share" Icon="sharee.png" Priority="2" Order="Primary" Clicked="OnShareButtonClicked"/>
+        <ToolbarItem x:Name="delete" Icon="delete.png" Priority="3" Order="Primary" Clicked="OnDeleteButtonClicked"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
